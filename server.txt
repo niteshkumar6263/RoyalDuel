@@ -1,0 +1,27 @@
+const io = require("socket.io")(server);
+
+let players = {};
+
+io.on("connection", (socket) => {
+  // Assign player role
+  const playerId = Object.keys(players).length === 0 ? "player1" : "player2";
+  players[socket.id] = playerId;
+
+  socket.emit("roleAssigned", playerId);
+
+  console.log(`${playerId} connected`);
+
+  // Listen for keypress from clients
+  socket.on("keyPress", (key) => {
+    const role = players[socket.id];
+    console.log(`Key "${key}" pressed by ${role}`);
+
+    // Broadcast to both players
+    io.emit("playerAction", { role, key });
+  });
+
+  socket.on("disconnect", () => {
+    console.log(`${players[socket.id]} disconnected`);
+    delete players[socket.id];
+  });
+});
