@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="gamelogic/styles.css" />
+  </head>
+  <body>
+    <div class="gif-background">
+      <!-- <iframe
+        src="https://gifer.com/embed/TL80"
+        width="480"
+        height="270.000"
+        frameBorder="0"
+        allowFullScreen
+      ></iframe>
+      <p><a href="https://gifer.com">via GIFER</a></p> -->
+    </div>
+    <div display="grid">
+      <div id="video-screen">
+        <div class="videos local-video">
+          <video id="localVideo" autoplay playsinline></video>
+        </div>
+        <div class="video operate">
+          <div class="username-input">
+            <input
+              id="username"
+              type="text"
+              placeholder="Enter Username"
+            /><button id="create-user">Create</button>
+          </div>
+          <div class="topic">
+            <div class="text control-container">PLAYER 1</div>
+            <div class="topic name">ROYAL DUEL</div>
+            <div class="text control-container">PLAYER 2</div>
+          </div>
+          <div class="health" style="padding-top: 10px">
+            <div id="health" style="background-color: aqua">
+              <!-- player -->
+              <div class="player">
+                <div
+                  style="background-color: red; height: 30px; width: 100%"
+                ></div>
+                <div
+                  id="playerHealth"
+                  style="
+                    position: absolute;
+
+                    background-color: rgb(114, 114, 247);
+                    top: 0;
+                    bottom: 0;
+                    width: 100%;
+                    right: 0;
+                  "
+                ></div>
+              </div>
+              <!-- timer -->
+              <div id="timer">60</div>
+              <!-- enemy -->
+              <div style="position: relative; height: 30px; width: 100%">
+                <div style="background-color: red; height: 30px"></div>
+                <div
+                  id="enemyHealth"
+                  style="
+                    position: absolute;
+                    background-color: rgb(114, 114, 247);
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                    left: 0;
+                  "
+                ></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="videos remote-video">
+          <video id="remoteVideo" autoplay playsinline></video>
+        </div>
+      </div>
+      <div id="displayText">Tie</div>
+      <div id="displayText">Player 1 Winner</div>
+      <div id="displayText">Player 2 Winner</div>
+      <div id="main-screen">
+        <div class="screen">
+          <!-- <div class="control-container iconbtn" id="camera-btn">
+            <img src="./img/camera.png" />
+          </div>
+          <div class="control-container iconbtn" id="mic-btn">
+            <img src="./img/mic.png" />
+          </div> -->
+          <!-- <div class="control-container iconbtn" id="leave-btn">
+            <img src="./img/leave.png" />
+          </div> -->
+          <aside class="caller-list-wrapper">
+            <h1 class="caller-list-heading h-font">Players</h1>
+            <ul id="allusers" class="caller-list" style="padding: 0px">
+              <!-- <li>
+                    <span>Rizwan Khan (You)</span>
+                    <button class="call-btn"><img width="20" src="/images/phone.png" alt=""></button>
+                </li> -->
+            </ul>
+          </aside>
+        </div>
+        <div class="game-screen" style="border: 5px solid black">
+          <canvas></canvas>
+        </div>
+        <div class="screen">
+          <div class="control-container iconbtn" id="camera-btn">
+            <img src="./img/camera.png" />
+          </div>
+          <div class="control-container iconbtn" id="mic-btn">
+            <img src="./img/mic.png" />
+          </div>
+          <div class="control-container iconbtn" id="reload">
+            <img src="./img/reload.png" />
+          </div>
+          <div class="control-container iconbtn" id="end-call-btn">
+            <img src="./img/leave.png" />
+          </div>
+          <!-- <div class="control-container iconbtn" id="sound ">
+            <img src="./img/reload.png" />
+          </div> -->
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"
+      integrity="sha512-NcZdtrT77bJr4STcmsGAESr06BYGE8woZdSdEgqnpyqac7sugNO+Tr4bGwGF3MsnEkGKhU2KL2xh6Ec+BqsaHA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdn.socket.io/4.8.1/socket.io.min.js"
+      integrity="sha384-mkQ3/7FUtcGyoppY6bz/PORYoGqOl7/aSUMn2ymDOJcapfS6PHqxhRTMh1RR0Q6+"
+      crossorigin="anonymous"
+    ></script>
+    <script src="gamelogic/classes.js"></script>
+    <script src="gamelogic/utils.js"></script>
+    <script src="gamelogic/indexmain.js"></script>
+    <script src="/royalduel.js"></script>
+  </body>
+</html>
