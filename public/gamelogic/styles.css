@@ -1,0 +1,196 @@
+* {
+  box-sizing: border-box;
+  font-family: "Press Start 2P", system-ui;
+}
+.gif-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Send it behind everything */
+  background-color: gray;
+  overflow: hidden;
+}
+
+.gif-background iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  pointer-events: none; /* Disable clicks on iframe */
+}
+#main-screen {
+  display: grid;
+  grid-template-columns: 1fr 5fr 1fr;
+  height: 70vh;
+  /* gap: 1px; */
+}
+.game-screen {
+  display: grid;
+  justify-content: center; /* centers horizontally */
+  align-items: center;
+  width: 100%;
+}
+#video-screen {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  height: 26vh;
+}
+.videos {
+  background-color: rgba(0, 0, 0, 0.861);
+  border-radius: 20px;
+}
+.operate {
+  display: grid;
+  /* background-color: black; */
+  grid-template-rows: 0.4fr 1fr 1fr;
+}
+#health {
+  position: relative;
+  display: flex;
+  width: 799px;
+  align-items: center;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+.topic {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+}
+.player {
+  position: relative;
+  height: 30px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+#timer {
+  background-color: white;
+  height: 50px;
+  width: 200px;
+  flex-shrink: 0;
+  display: flex;
+  border: 5px solid black;
+  align-items: center;
+  font-size: 35px;
+  color: black;
+  justify-content: center;
+}
+#displayText {
+  position: absolute;
+  color: black;
+  display: none;
+  font-size: 40px;
+  font-weight: bold;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.screen {
+  /* background-color: black; */
+  display: grid;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+}
+.controls {
+  display: grid;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+#controls {
+  /* position: fixed; */
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  gap: 1em;
+}
+
+.control-container {
+  background-color: rgb(179, 102, 249, 0.9);
+  padding: 20px;
+  border-radius: 25%;
+  border: 2px solid black;
+}
+
+.control-container img {
+  height: 50px;
+  width: 50px;
+}
+.iconbtn {
+  cursor: pointer;
+}
+#end-call-btn {
+  background-color: rgb(255, 80, 80, 1);
+}
+.name {
+  color: rgba(141, 126, 10, 0.967);
+  font-size: 45px;
+  padding-left: 10px;
+  padding-right: 10px;
+  height: 64px;
+  border: 5px solid gold;
+  background-color: rgba(255, 255, 0, 0.62);
+}
+.text {
+  color: black;
+  background-color: white;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-weight: bold;
+  border: 5px solid black;
+  border-radius: 0;
+}
+#localVideo {
+  height: 26vh;
+  width: 100%;
+  border: 5px solid white;
+  border-radius: 20px;
+}
+#remoteVideo {
+  height: 26vh;
+  width: 100%;
+  border: 5px solid white;
+  border-radius: 20px;
+}
+.username-input {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.caller-list-heading {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+}
+.caller-list-wrapper {
+  /* flex-basis: 30rem; */
+  /* border-right: 1px solid black; */
+  height: 100%;
+  padding: 0px;
+  /* background: white; */
+}
+.caller-list > li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: #eee;
+  margin: 0.5rem;
+  border-radius: 5px;
+  cursor: pointer;
+  /* font-size: 1.6rem; */
+}
