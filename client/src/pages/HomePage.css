@@ -1,0 +1,280 @@
+.home-container {
+  min-height: 100vh;
+  background: #050816;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  color: white;
+}
+
+.title {
+  font-size: 64px;
+  font-weight: 800;
+}
+
+.subtitle {
+  color: #94a3b8;
+  margin-top: 10px;
+}
+
+.username-input {
+  width: 350px;
+  padding: 15px;
+  margin-top: 30px;
+
+  border: none;
+  border-radius: 10px;
+
+  outline: none;
+}
+
+.btn-group {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.create-btn,
+.join-btn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 10px;
+
+  cursor: pointer;
+}
+
+.create-btn {
+  background: #2563eb;
+  color: white;
+}
+
+.join-btn {
+  background: #9333ea;
+  color: white;
+}
+body {
+  margin: 0;
+  font-family: Inter, sans-serif;
+}
+
+.home-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #050816, #0f172a, #050816);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  color: white;
+}
+
+.title {
+  font-size: 5rem;
+  font-weight: 900;
+
+  background: linear-gradient(90deg, #22d3ee, #8b5cf6, #ec4899);
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.subtitle {
+  color: #94a3b8;
+  margin-bottom: 30px;
+}
+
+.username-input {
+  width: 400px;
+  padding: 16px;
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+
+  color: white;
+}
+
+.btn-group {
+  display: flex;
+  gap: 20px;
+  margin-top: 25px;
+}
+
+.create-btn,
+.join-btn {
+  padding: 14px 28px;
+  border: none;
+  border-radius: 12px;
+
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.create-btn {
+  background: linear-gradient(90deg, #06b6d4, #2563eb);
+}
+
+.join-btn {
+  background: linear-gradient(90deg, #9333ea, #d946ef);
+}
+
+.create-btn:hover,
+.join-btn:hover {
+  transform: translateY(-3px);
+}
+.features {
+  display: flex;
+  gap: 50px;
+  margin-top: 50px;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  color: #94a3b8;
+}
+
+/* <-------------------------- Waiting Room CSS -------------------------->*/
+.waiting-room {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.room-id {
+  margin: 20px 0;
+
+  padding: 20px 40px;
+
+  font-size: 40px;
+  font-weight: bold;
+
+  border-radius: 16px;
+
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.loader {
+  margin-top: 30px;
+
+  width: 50px;
+  height: 50px;
+
+  border: 5px solid rgba(255, 255, 255, 0.2);
+  border-top: 5px solid white;
+
+  border-radius: 50%;
+
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+.copy-btn {
+  margin-top: 15px;
+
+  padding: 12px 24px;
+
+  border: none;
+  border-radius: 12px;
+
+  background: linear-gradient(90deg, #06b6d4, #2563eb);
+
+  color: white;
+  font-weight: 600;
+
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.copy-btn:hover {
+  transform: translateY(-2px);
+}
+
+/* -------------------------- Joinning Room CSS  --------------------------> */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.6);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.join-modal {
+  width: 400px;
+
+  padding: 30px;
+
+  border-radius: 20px;
+
+  background: #111827;
+
+  color: white;
+}
+
+.join-modal input {
+  width: 100%;
+
+  padding: 15px;
+
+  margin-top: 20px;
+
+  border-radius: 10px;
+}
+
+.modal-btns {
+  margin-top: 20px;
+
+  display: flex;
+  justify-content: space-between;
+}
+.join-modal {
+  width: 450px;
+  max-width: 90%;
+  padding: 40px;
+  border-radius: 24px;
+}
+.join-modal input {
+  width: 100%;
+  box-sizing: border-box;
+}
+.modal-btns button {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.modal-btns button:first-child {
+  background: #374151;
+  color: white;
+}
+
+.modal-btns button:last-child {
+  background: linear-gradient(90deg, #9333ea, #d946ef);
+  color: white;
+}

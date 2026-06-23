@@ -1,0 +1,76 @@
+.stats-strip {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  padding: 18px 24px;
+
+  border-radius: 22px;
+
+  background: #101425;
+
+  border: 1px solid rgba(90, 90, 255, 0.2);
+
+  box-shadow: 0 0 25px rgba(90, 90, 255, 0.12);
+}
+.stats-strip {
+  width: 100%;
+
+  box-sizing: border-box;
+
+  align-self: stretch;
+}
+.stat-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.stat-item h3 {
+  margin: 0;
+
+  color: white;
+
+  font-size: 28px;
+
+  font-weight: 700;
+}
+
+.stat-item p {
+  margin: 0;
+
+  color: #a7b0d3;
+
+  font-size: 13px;
+
+  letter-spacing: 1px;
+}
+
+.divider {
+  width: 1px;
+  height: 48px;
+
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.ping svg {
+  color: #36ff72;
+}
+
+.hits svg {
+  color: #d946ef;
+}
+
+.combo svg {
+  color: #ff8a00;
+}
+
+.damage svg {
+  color: #ff4d6d;
+}
+
+.round svg {
+  color: #ffd43b;
+}

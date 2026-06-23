@@ -1,0 +1,197 @@
+.player-card {
+  background: rgba(255, 255, 255, 0.03);
+
+  border-radius: 24px;
+
+  padding: 18px;
+
+  backdrop-filter: blur(20px);
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 25px;
+}
+
+.player-card.left {
+  border: 2px solid #2563eb;
+
+  box-shadow: 0 0 25px rgba(37, 99, 235, 0.25);
+}
+
+.player-card.right {
+  border: 2px solid #ef4444;
+
+  box-shadow: 0 0 25px rgba(239, 68, 68, 0.25);
+}
+
+.player-label {
+  width: fit-content;
+
+  margin: 0 auto 0px;
+
+  padding: 0px 40px;
+
+  border-radius: 12px;
+
+  font-size: 18px;
+  font-weight: 700;
+
+  background: linear-gradient(90deg, #0f4dff, #4020ff);
+
+  border: 1px solid #3b82f6;
+
+  color: white;
+
+  text-transform: uppercase;
+}
+
+.status-badge {
+  width: fit-content;
+
+  padding: 6px 12px;
+
+  border-radius: 12px;
+
+  background: rgba(34, 197, 94, 0.15);
+
+  color: #4ade80;
+
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.video-container {
+  position: relative;
+}
+
+.video-placeholder {
+  height: 240px;
+
+  border-radius: 18px;
+
+  background: #0f172a;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #94a3b8;
+}
+
+.video-element {
+  width: 100%;
+  height: 260px;
+  border-radius: 18px;
+  background: #0f172a;
+  object-fit: cover;
+  display: block;
+}
+
+.video-element.video-hidden {
+  opacity: 0;
+}
+
+.video-off-overlay {
+  position: absolute;
+  inset: 0;
+  border-radius: 18px;
+  background: #0f172a;
+  color: #cbd5e1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: 0;
+}
+.character-name {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.username {
+  color: #cbd5e1;
+}
+
+.player-meta {
+  display: flex;
+  justify-content: space-between;
+}
+
+.player-meta div {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.player-meta .muted-meta {
+  color: #f87171;
+}
+
+.health-top {
+  display: flex;
+  justify-content: space-between;
+
+  margin-bottom: 8px;
+
+  font-weight: 600;
+}
+.health-bar {
+  width: 100%;
+  height: 18px;
+  background: #1a243a;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-top: 10px;
+}
+
+.health-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #34ff73, #7dff6d);
+  border-radius: 20px;
+  transition: width 0.3s ease;
+}
+
+.status-badge {
+  position: absolute;
+
+  top: 12px;
+  left: 12px;
+
+  z-index: 10;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 8px 14px;
+
+  border-radius: 999px;
+
+  background: rgba(0, 0, 0, 0.75);
+
+  backdrop-filter: blur(10px);
+
+  color: #4ade80;
+
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+
+  border-radius: 50%;
+
+  background: #22c55e;
+
+  box-shadow:
+    0 0 8px #22c55e,
+    0 0 16px #22c55e;
+}

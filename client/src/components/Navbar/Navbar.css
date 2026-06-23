@@ -1,0 +1,175 @@
+/* Navbar.css */
+
+.navbar {
+  height: 110px;
+  padding: 0 40px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background: #050b22;
+
+  border-bottom: 1px solid rgba(0, 140, 255, 0.2);
+}
+.navbar {
+  position: relative;
+
+  height: 110px;
+  padding: 0 40px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background: #050b22;
+}
+
+/* CENTRE - TITLE */
+.logo-section {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  transform: translate(-50%, -50%);
+
+  text-align: center;
+}
+/* LEFT */
+
+.room-card {
+  min-width: 170px;
+
+  padding: 12px 18px;
+
+  border-radius: 18px;
+
+  background: rgba(12, 18, 45, 0.9);
+
+  border: 1px solid rgba(59, 130, 246, 0.3);
+
+  box-shadow: 0 0 20px rgba(0, 140, 255, 0.1);
+}
+
+.room-label {
+  margin: 0;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  letter-spacing: 2px;
+
+  color: #7c8cff;
+}
+
+.room-card h3 {
+  margin: 4px 0 0;
+
+  font-size: 32px;
+  font-weight: 800;
+
+  color: white;
+}
+
+/* CENTER */
+
+.logo-section {
+  text-align: center;
+}
+
+.logo-section h1 {
+  margin: 0;
+
+  font-size: 58px;
+  font-weight: 900;
+
+  background: linear-gradient(90deg, #4ea1ff, #a855f7);
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  letter-spacing: 2px;
+}
+
+.logo-section p {
+  margin-top: 6px;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  letter-spacing: 4px;
+
+  color: #7c8cff;
+}
+
+/* RIGHT */
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.icon-btn {
+  width: 52px;
+  height: 52px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  border-radius: 16px;
+
+  background: rgba(12, 18, 45, 0.9);
+
+  color: white;
+
+  cursor: pointer;
+
+  transition: 0.25s;
+}
+
+.icon-btn:hover {
+  transform: translateY(-2px);
+
+  border-color: #4ea1ff;
+
+  box-shadow: 0 0 18px rgba(78, 161, 255, 0.3);
+}
+
+/* ONLINE */
+
+.online-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 12px 22px;
+
+  border-radius: 18px;
+
+  background: rgba(12, 18, 45, 0.9);
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  color: white;
+
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.online-dot {
+  width: 12px;
+  height: 12px;
+
+  border-radius: 50%;
+
+  background: #22c55e;
+
+  box-shadow:
+    0 0 10px #22c55e,
+    0 0 20px #22c55e;
+}

@@ -1,0 +1,51 @@
+.match-stats {
+  background: rgba(10, 15, 35, 0.95);
+
+  border: 2px solid #1f6fff;
+
+  border-radius: 28px;
+
+  padding: 20px;
+
+  box-shadow: 0 0 20px rgba(31, 111, 255, 0.25);
+}
+
+.stats-title {
+  text-align: center;
+
+  color: #4d7fff;
+
+  font-size: 22px;
+
+  margin-bottom: 18px;
+}
+
+.stats-row {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  padding: 16px 0;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+  color: white;
+}
+
+.stats-row:last-child {
+  border-bottom: none;
+}
+
+.stats-left {
+  display: flex;
+
+  gap: 12px;
+
+  align-items: center;
+}
+
+.stats-left svg {
+  color: #7f6cff;
+}

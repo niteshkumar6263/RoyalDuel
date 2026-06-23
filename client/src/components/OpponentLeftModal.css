@@ -1,0 +1,106 @@
+.opponent-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  backdrop-filter: blur(5px);
+}
+
+.opponent-modal {
+  background: linear-gradient(135deg, #0d1630 0%, #081120 100%);
+  border: 2px solid rgba(255, 50, 50, 0.5);
+  border-radius: 25px;
+  padding: 50px 40px;
+  max-width: 500px;
+  width: 90%;
+  text-align: center;
+  box-shadow:
+    0 0 50px rgba(255, 50, 50, 0.3),
+    inset 0 0 30px rgba(255, 50, 50, 0.1);
+  animation: modalSlideIn 0.4s ease-out;
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.modal-icon {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 25px;
+  animation: iconPulse 1s ease-in-out infinite;
+}
+
+.modal-icon svg {
+  color: #ff3232;
+  filter: drop-shadow(0 0 20px rgba(255, 50, 50, 0.6));
+}
+
+@keyframes iconPulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.modal-title {
+  color: #ff3232;
+  font-size: 36px;
+  font-weight: 700;
+  margin: 0 0 15px 0;
+  letter-spacing: 2px;
+  text-shadow: 0 0 20px rgba(255, 50, 50, 0.5);
+}
+
+.modal-message {
+  color: #cbd5e1;
+  font-size: 18px;
+  line-height: 1.6;
+  margin: 0 0 30px 0;
+  letter-spacing: 0.5px;
+}
+
+.modal-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: linear-gradient(135deg, #ff3232 0%, #ff5555 100%);
+  border: none;
+  color: white;
+  padding: 14px 36px;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: 1px;
+  box-shadow: 0 0 25px rgba(255, 50, 50, 0.4);
+}
+
+.modal-btn:hover {
+  background: linear-gradient(135deg, #ff5555 0%, #ff3232 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 0 35px rgba(255, 50, 50, 0.6);
+}
+
+.modal-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 0 20px rgba(255, 50, 50, 0.4);
+}
