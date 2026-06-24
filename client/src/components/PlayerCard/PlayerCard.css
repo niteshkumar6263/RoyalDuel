@@ -88,10 +88,6 @@
   display: block;
 }
 
-.video-element.video-hidden {
-  opacity: 0;
-}
-
 .video-off-overlay {
   position: absolute;
   inset: 0;

@@ -11,6 +11,7 @@ import ControlPanel from "../components/ControlPanel/ControlPanel";
 import StatsStrip from "../components/StatsBar/StatsBar";
 import OpponentLeftModal from "../components/OpponentLeftModal";
 import socket from "../services/socket";
+import { useGameState } from "../hooks/useGameState";
 import {
   createOffer,
   initializePeerConnection,
@@ -19,6 +20,15 @@ import {
   setupSignaling,
 } from "../services/webrtc";
 
+/**
+ * GamePage - Main game container
+ * Manages:
+ * - Game state via useGameState hook
+ * - Player information and health
+ * - WebRTC video/audio streams
+ * - Game-over detection
+ * - Room synchronization
+ */
 export default function GamePage() {
   const navigate = useNavigate();
   const location = useLocation();
@@ -37,6 +47,17 @@ export default function GamePage() {
   const localStreamRef = useRef(null);
   const signalingCleanupRef = useRef(null);
   const offerSentRef = useRef(false);
+
+  // Initialize game state - single source of truth for health and game status
+  const isLocalHost = players[0]?.socketId === socket.id;
+  const {
+    gameState,
+    setGameState,
+    updateHealth,
+    broadcastAction,
+    checkWinnerAndBroadcast,
+    resetGame,
+  } = useGameState(roomId, players, isLocalHost);
 
   // Update India time every second
   useEffect(() => {
@@ -59,7 +80,7 @@ export default function GamePage() {
 
   // Handle leave game
   const handleLeaveGame = () => {
-    socket.emit("leave-game");
+    socket.emit("leave-game", { roomId });
     navigate("/");
   };
 
@@ -97,28 +118,25 @@ export default function GamePage() {
     }
   };
 
-  const startOffer = useCallback(
-    async (rid, playerList) => {
-      const peerConnection = peerConnectionRef.current;
+  const startOffer = useCallback(async (rid, playerList) => {
+    const peerConnection = peerConnectionRef.current;
 
-      if (
-        !peerConnection ||
-        offerSentRef.current ||
-        playerList[0]?.socketId !== socket.id ||
-        playerList.length < 2
-      ) {
-        return;
-      }
+    if (
+      !peerConnection ||
+      offerSentRef.current ||
+      playerList[0]?.socketId !== socket.id ||
+      playerList.length < 2
+    ) {
+      return;
+    }
 
-      const offer = await createOffer(peerConnection);
+    const offer = await createOffer(peerConnection);
 
-      if (offer) {
-        offerSentRef.current = true;
-        sendOffer(rid, offer);
-      }
-    },
-    [],
-  );
+    if (offer) {
+      offerSentRef.current = true;
+      sendOffer(rid, offer);
+    }
+  }, []);
 
   const initializeWebRTC = useCallback(async (rid, playerList) => {
     if (!rid || peerConnectionRef.current) {
@@ -135,10 +153,10 @@ export default function GamePage() {
       setLocalStream(stream);
       localStreamRef.current = stream;
       stream.getVideoTracks().forEach((track) => {
-        track.enabled = isCameraOn;
+        track.enabled = true; // Default to enabled
       });
       stream.getAudioTracks().forEach((track) => {
-        track.enabled = isMicOn;
+        track.enabled = true; // Default to enabled
       });
     } catch (error) {
       console.error("Error accessing media devices:", error);
@@ -227,28 +245,9 @@ export default function GamePage() {
   };
 
   const localPlayer = players.find((player) => player.socketId === socket.id);
-  const opponentPlayer = players.find((player) => player.socketId !== socket.id);
-  const getPlayerProfile = (player) => {
-    const playerIndex = players.findIndex(
-      (entry) => entry.socketId === player?.socketId,
-    );
-
-    if (playerIndex === 0) {
-      return {
-        character: "KING ARTHUR",
-        health: 95,
-        ping: 32,
-      };
-    }
-
-    return {
-      character: "SHADOW NINJA",
-      health: 80,
-      ping: 28,
-    };
-  };
-  const localProfile = getPlayerProfile(localPlayer);
-  const opponentProfile = getPlayerProfile(opponentPlayer);
+  const opponentPlayer = players.find(
+    (player) => player.socketId !== socket.id,
+  );
 
   return (
     <div className="game-page">
@@ -256,17 +255,28 @@ export default function GamePage() {
         show={showOpponentLeftModal}
         onClose={handleModalClose}
       />
-      <Navbar />
+      <Navbar roomId={roomId} />
       {mediaError && <div className="media-error">{mediaError}</div>}
 
       {/* Top Section */}
       <div className="main-row">
+        {/* Left: opponent */}
         <PlayerCard
           label="OPPONENT"
-          player={opponentProfile.character}
-          username={opponentPlayer?.username || "Waiting..."}
-          health={opponentProfile.health}
-          ping={opponentProfile.ping}
+          player={
+            isLocalHost
+              ? gameState.player2.character
+              : gameState.player1.character
+          }
+          username={
+            isLocalHost
+              ? gameState.player2.username
+              : gameState.player1.username
+          }
+          health={
+            isLocalHost ? gameState.player2.health : gameState.player1.health
+          }
+          ping={32}
           side="left"
           stream={remoteStream}
           videoEnabled={isOpponentCameraOn}
@@ -274,17 +284,34 @@ export default function GamePage() {
           muted={false}
         />
 
+        {/* Center: Game Arena and Stats */}
         <div className="center-column">
-          <Arena />
+          <Arena
+            gameState={gameState}
+            onGameStateUpdate={setGameState}
+            isLocalHost={isLocalHost}
+            roomId={roomId}
+          />
           <StatsStrip />
         </div>
 
+        {/* Right: local player */}
         <PlayerCard
           label="YOU"
-          player={localProfile.character}
-          username={localPlayer?.username || "You"}
-          health={localProfile.health}
-          ping={localProfile.ping}
+          player={
+            isLocalHost
+              ? gameState.player1.character
+              : gameState.player2.character
+          }
+          username={
+            isLocalHost
+              ? gameState.player1.username
+              : gameState.player2.username
+          }
+          health={
+            isLocalHost ? gameState.player1.health : gameState.player2.health
+          }
+          ping={28}
           side="right"
           stream={localStream}
           videoEnabled={isCameraOn}
@@ -305,7 +332,7 @@ export default function GamePage() {
           onLeave={handleLeaveGame}
         />
 
-        <MatchInfo />
+        <MatchInfo roomId={roomId} />
       </div>
     </div>
   );

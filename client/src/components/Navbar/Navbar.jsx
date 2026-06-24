@@ -2,12 +2,14 @@ import React from "react";
 import "./Navbar.css";
 import { Volume2, Users, Settings } from "lucide-react";
 
-export default function Navbar() {
+export default function Navbar({ roomId = "" }) {
+  const displayRoomId = roomId ? `#${roomId}` : "Joining...";
+
   return (
     <header className="navbar">
       <div className="room-card">
         <p className="room-label">ROOM ID</p>
-        <h3>#AB123</h3>
+        <h3>{displayRoomId}</h3>
       </div>
 
       <div className="logo-section">

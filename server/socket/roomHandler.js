@@ -1,4 +1,5 @@
 const rooms = {};
+const gameHandler = require("./gameHandler");
 
 function roomHandler(io, socket) {
   socket.on("create-room", ({ username }) => {
@@ -17,6 +18,9 @@ function roomHandler(io, socket) {
     };
 
     socket.join(roomId);
+
+    // Initialize game handlers for room creator
+    gameHandler(io, socket, roomId);
 
     socket.emit("room-created", {
       roomId,
@@ -49,8 +53,17 @@ function roomHandler(io, socket) {
       players: room.players,
     };
 
-    io.to(roomId).emit("player-joined", payload);
-    io.to(roomId).emit("game-start", payload);
+    // When both players are in the room, initialize game handlers and start game
+    if (room.players.length === 2) {
+      io.to(roomId).emit("player-joined", payload);
+      io.to(roomId).emit("game-start", payload);
+
+      // Initialize game event handlers for this room
+      // Game handlers will be called for both players in the room
+      gameHandler(io, socket, roomId);
+    } else {
+      io.to(roomId).emit("player-joined", payload);
+    }
   });
 
   socket.on("leave-game", () => {

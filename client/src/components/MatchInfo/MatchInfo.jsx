@@ -2,7 +2,15 @@ import React from "react";
 import "./MatchInfo.css";
 import { Home, Users, Globe, Swords } from "lucide-react";
 
-export default function MatchInfo() {
+/**
+ * MatchInfo Component - Displays match information
+ * Shows:
+ * - Room ID
+ * - Number of players connected
+ * - Server location
+ * - Game mode
+ */
+export default function MatchInfo({ roomId = "#AB123" }) {
   return (
     <div className="match-info">
       <h3 className="info-title">MATCH INFO</h3>
@@ -12,7 +20,7 @@ export default function MatchInfo() {
           <Home size={18} />
           ROOM ID
         </div>
-        <span>#AB123</span>
+        <span>{roomId || "#AB123"}</span>
       </div>
 
       <div className="info-row">
