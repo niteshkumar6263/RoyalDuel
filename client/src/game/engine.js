@@ -53,13 +53,13 @@ export class GameEngine {
   _initializeSprites() {
     this.background = new Sprite({
       position: { x: 0, y: 0 },
-      imageSrc: this._resolveAsset("./assets/img/backgroundresize.png"),
+      imageSrc: this._resolveAsset("/img/backgroundresize.png"),
       ctx: this.ctx,
     });
 
     this.shop = new Sprite({
       position: { x: 600, y: 50 },
-      imageSrc: this._resolveAsset("./assets/img/shop.png"),
+      imageSrc: this._resolveAsset("/img/shop.png"),
       scale: 2.75,
       frameMax: 6,
       ctx: this.ctx,
@@ -79,40 +79,40 @@ export class GameEngine {
       velocity: { x: 0, y: 0 },
       scale: 3,
       offset: { x: 215, y: 162 },
-      imageSrc: this._resolveAsset("./assets/img/king/Idle.png"),
+      imageSrc: this._resolveAsset("/img/king/Idle.png"),
       frameMax: 8,
       ctx: this.ctx,
       sprites: {
         attack1: {
-          imageSrc: this._resolveAsset("./assets/img/king/Attack1.png"),
+          imageSrc: this._resolveAsset("/img/king/Attack1.png"),
           frameMax: 4,
         },
         attack2: {
-          imageSrc: this._resolveAsset("./assets/img/king/Attack2.png"),
+          imageSrc: this._resolveAsset("/img/king/Attack2.png"),
           frameMax: 4,
         },
         death: {
-          imageSrc: this._resolveAsset("./assets/img/king/Death.png"),
+          imageSrc: this._resolveAsset("/img/king/Death.png"),
           frameMax: 6,
         },
         fall: {
-          imageSrc: this._resolveAsset("./assets/img/king/Fall.png"),
+          imageSrc: this._resolveAsset("/img/king/Fall.png"),
           frameMax: 2,
         },
         idle: {
-          imageSrc: this._resolveAsset("./assets/img/king/Idle.png"),
+          imageSrc: this._resolveAsset("/img/king/Idle.png"),
           frameMax: 8,
         },
         jump: {
-          imageSrc: this._resolveAsset("./assets/img/king/Jump.png"),
+          imageSrc: this._resolveAsset("/img/king/Jump.png"),
           frameMax: 2,
         },
         run: {
-          imageSrc: this._resolveAsset("./assets/img/king/Run.png"),
+          imageSrc: this._resolveAsset("/img/king/Run.png"),
           frameMax: 8,
         },
         takehit: {
-          imageSrc: this._resolveAsset("./assets/img/king/TakeHit.png"),
+          imageSrc: this._resolveAsset("/img/king/TakeHit.png"),
           frameMax: 4,
         },
       },
@@ -129,40 +129,40 @@ export class GameEngine {
       velocity: { x: 0, y: 0 },
       scale: 3,
       offset: { x: 215, y: 231 },
-      imageSrc: this._resolveAsset("./assets/img/kenji/Idle.png"),
+      imageSrc: this._resolveAsset("/img/kenji/Idle.png"),
       frameMax: 4,
       ctx: this.ctx,
       sprites: {
         attack1: {
-          imageSrc: this._resolveAsset("./assets/img/kenji/Attack1.png"),
+          imageSrc: this._resolveAsset("/img/kenji/Attack1.png"),
           frameMax: 4,
         },
         attack2: {
-          imageSrc: this._resolveAsset("./assets/img/kenji/Attack2.png"),
+          imageSrc: this._resolveAsset("/img/kenji/Attack2.png"),
           frameMax: 4,
         },
         death: {
-          imageSrc: this._resolveAsset("./assets/img/kenji/Death.png"),
+          imageSrc: this._resolveAsset("/img/kenji/Death.png"),
           frameMax: 7,
         },
         fall: {
-          imageSrc: this._resolveAsset("./assets/img/kenji/Fall.png"),
+          imageSrc: this._resolveAsset("/img/kenji/Fall.png"),
           frameMax: 2,
         },
         idle: {
-          imageSrc: this._resolveAsset("./assets/img/kenji/Idle.png"),
+          imageSrc: this._resolveAsset("/img/kenji/Idle.png"),
           frameMax: 4,
         },
         jump: {
-          imageSrc: this._resolveAsset("./assets/img/kenji/Jump.png"),
+          imageSrc: this._resolveAsset("/img/kenji/Jump.png"),
           frameMax: 2,
         },
         run: {
-          imageSrc: this._resolveAsset("./assets/img/kenji/Run.png"),
+          imageSrc: this._resolveAsset("/img/kenji/Run.png"),
           frameMax: 8,
         },
         takehit: {
-          imageSrc: this._resolveAsset("./assets/img/kenji/TakeHit.png"),
+          imageSrc: this._resolveAsset("/img/kenji/TakeHit.png"),
           frameMax: 3,
         },
       },
