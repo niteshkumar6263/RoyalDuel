@@ -33,7 +33,7 @@ Royal Duel lets two players fight head-to-head directly in the browser — no do
 **Server**
 - Node.js, Express 5
 - Socket.IO (WebSocket server)
-- CORS, dotenv
+- CORS
 
 **Deployment**
 - Render (client and server deployed as two separate services)
